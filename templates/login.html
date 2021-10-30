@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>{{ titulo }}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+
+<body>
+    <!-- {% with mensajes = get_flashed_messages() %}
+         {% if mensajes %}
+              {% for mensaje in mensajes %}
+                   {{ mensaje }}
+              {% endfor %}
+         {% endif %}
+    {% endwith %} 
+
+action="{{url_for('procesarCredenciales')}}"
+-->
+
+    <form id="frmLogin"  class="formulario" method="GET">
+        <label for="txtCorreo">Correo</label>
+        <input type="email" name="txtCorreo" id="txtCorreo" placeholder="Ingrese su Correo">
+        <label for="txtPassword">Constraseña</label>
+        <input type="password" name="txtPassword" id="txtPassword" placeholder="Ingrese su Contraseña">
+        <button type="submit"> Enviar </button>
+    </form>
+    <!--{{ ejemplo }}-->
+    <script src="{{url_for('static',filename='jquery.min.js')}}"></script>
+    <script>
+        $("#frmLogin").submit(function(e){
+            e.preventDefault();
+            var correo = $("#txtCorreo").val();
+            alert(correo);
+        });
+    </script>
+</body>
+</html>
